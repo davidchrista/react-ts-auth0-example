@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Profile from "./profile";
+import LoginButton from "./login";
+import LogoutButton from "./logout";
+import FetchButton from "./fetch";
 
 function App() {
+  const [fetchResult, setFetchResult] = useState<string>("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LoginButton />
+      <LogoutButton />
+      <FetchButton host="localhost" port="4000" cb={setFetchResult} />
+      <FetchButton host="localhost" port="4100" cb={setFetchResult} />
+      <Profile />
+      <div>
+        <p>{fetchResult}</p>
+      </div>
+    </>
   );
 }
 
