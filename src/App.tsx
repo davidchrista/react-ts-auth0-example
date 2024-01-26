@@ -14,6 +14,7 @@ function App() {
       <LogoutButton />
       <FetchButton host="localhost" port="4000" cb={setFetchResult} />
       <FetchButton host="localhost" port="4100" cb={setFetchResult} />
+      <FetchButton host="localhost" port="4200" cb={setFetchResult} />
       <Profile />
       <div>
         <p>{fetchResult}</p>
